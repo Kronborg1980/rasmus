@@ -102,6 +102,7 @@
             list-style: none;
             display: flex;
             gap: 30px;
+            transition: var(--transition-slow); /* Til mobil */
         }
 
         nav ul li a {
@@ -117,6 +118,28 @@
             color: var(--accent-color);
             opacity: 1;
         }
+
+        /* Hamburger Menu Ikon */
+        .menu-toggle {
+            display: none; /* Skjules på Desktop */
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 25px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background: var(--text-light);
+            border-radius: 3px;
+            transition: all 0.3s linear;
+            transform-origin: 1px;
+        }
+
 
         /* Hero Section - Immersiv start */
         .hero {
@@ -377,20 +400,110 @@
             color: var(--text-light);
         }
         
-        /* Mobil-specifikke justeringer */
+        /* ======================================= */
+        /* === MOBIL-RESPONSIVE JUSTERINGER (max-width: 768px) === */
+        /* ======================================= */
         @media (max-width: 768px) {
-            .container { padding: 0 15px; }
-            h2 { font-size: 2.2em; }
-            .hero { height: 70vh; }
+            
+            /* Generel Tilpasning */
+            body { font-size: 1em; }
+            .container { padding: 0 20px; } /* Lidt mere padding */
+            .section { padding: 60px 0; } /* Mindre plads mellem sektioner */
+
+            /* Typografi */
+            h2 { font-size: 2.2em; padding-bottom: 15px; margin-bottom: 15px;}
+            h2::after { width: 50px; }
             .hero h2 { font-size: 2.5em; }
-            .text-with-image { flex-direction: column; text-align: center; }
-            .text-with-image img { width: 80%; margin-top: 20px; }
-            .text-with-image h2, .text-with-image h2::after { text-align: center; transform: translateX(-50%); left: 50%; }
+            .hero p { font-size: 1.1em; margin-bottom: 30px; }
+            
+            /* Navigation - Hamburger Menu */
+            nav .container > div {
+                justify-content: space-between;
+                padding-right: 15px; /* Plads til knappen */
+            }
+
+            .menu-toggle {
+                display: flex; /* Vis hamburger på mobil */
+            }
+
+            nav ul {
+                /* Skjuler menu som standard */
+                position: absolute;
+                top: 61px; /* Lige under nav-baren */
+                left: 0;
+                width: 100%;
+                background: rgba(93, 126, 142, 0.95); 
+                flex-direction: column;
+                gap: 0;
+                transform: translateX(100%); /* Flyt menuen uden for skærmen */
+                height: auto;
+                opacity: 0;
+                pointer-events: none;
+            }
+
+            nav ul.active {
+                /* Viser menuen, når den er aktiv */
+                transform: translateX(0);
+                opacity: 1;
+                pointer-events: all;
+            }
+
+            nav ul li {
+                text-align: center;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            
+            nav ul li:last-child {
+                border-bottom: none;
+            }
+
+            nav ul li a {
+                display: block;
+                padding: 15px 20px;
+                opacity: 1;
+            }
+            
+            /* Hero Sektion */
+            .hero { height: 70vh; }
+            .hero-content { padding: 30px; }
+
+            /* Services Grid */
+            .services-grid {
+                grid-template-columns: 1fr; /* 1 kolonne på mobil */
+            }
+            .service-item {
+                border-radius: var(--radius-soft);
+                padding: 25px;
+            }
+
+            /* About Sektion */
+            .text-with-image { 
+                flex-direction: column; 
+                text-align: center; 
+                gap: 30px;
+                padding: 30px 0;
+            }
+            .text-with-image img { 
+                width: 100%; /* Billedet fylder mere på mobil */
+                min-width: unset;
+                height: 300px;
+                border-radius: var(--radius-soft);
+                margin: 0 auto;
+            }
+            
+            /* Sørg for at h2 i About centrerer */
+            .text-with-image h2 { text-align: center; }
+            .text-with-image h2::after { 
+                left: 50%; 
+                transform: translateX(-50%); 
+            }
+            
+            /* Kontakt sektion */
             .contact-content { padding: 30px 20px; }
-            nav ul { /* skjult mobilmenu */ }
+            .contact-details p { font-size: 0.95em; }
         }
 
-        /* SCROLL ANIMATION KLASSE */
+        /* SCROLL ANIMATION KLASSE (BEHOLDT) */
         .reveal {
             opacity: 0;
             transform: translateY(30px);
@@ -416,7 +529,7 @@
         <div class="container">
             <div style="display: flex; justify-content: space-between; align-items: center;">
                 <h1>Hjørring Hypnosecenter</h1>
-                <div class="menu-toggle" style="display: none;"><span></span><span></span><span></span></div>
+                <div class="menu-toggle"><span></span><span></span><span></span></div> 
                 <ul class="nav-links">
                     <li><a href="#home">Hjem</a></li>
                     <li><a href="#services">Mine forbedringer</a></li>
@@ -551,15 +664,16 @@
         window.addEventListener("scroll", reveal);
         reveal(); 
 
-        // Mobile menu toggle (beholdt)
+        // Mobile menu toggle (Opdateret)
         const menuToggle = document.querySelector('.menu-toggle');
         const navLinks = document.querySelector('.nav-links');
 
-        if (menuToggle) {
+        if (menuToggle && navLinks) {
             menuToggle.addEventListener('click', () => {
                 navLinks.classList.toggle('active');
                 menuToggle.classList.toggle('active');
             });
+            // Luk menuen, når et link klikkes
             document.querySelectorAll('.nav-links a').forEach(link => {
                 link.addEventListener('click', () => {
                     navLinks.classList.remove('active');
