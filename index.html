@@ -352,6 +352,8 @@
             padding: 50px;
             border-radius: var(--radius-large);
             box-shadow: var(--shadow-soft);
+            /* NYT: Centrerer alt indhold i denne boks */
+            text-align: center; 
         }
 
         .contact-image {
@@ -501,6 +503,11 @@
             /* Kontakt sektion */
             .contact-content { padding: 30px 20px; }
             .contact-details p { font-size: 0.95em; }
+            
+            /* NYT: Sørger for at kontaktinfo forbliver venstre-justeret */
+            .contact-details { 
+                text-align: left !important; 
+            }
         }
 
         /* SCROLL ANIMATION KLASSE (BEHOLDT) */
@@ -614,7 +621,7 @@
                 <img src="billeder/klinik.jpg" alt="Indbydende og roligt kliniklokale" class="contact-image" loading="lazy">
                 <p style="margin-bottom: 40px; font-weight: 500;">Er du klar til at **lave en varig forbedring**? Kontakt mig for en **uforpligtende samtale**, hvor jeg kan vise dig den hurtigste vej til dit mål med hypnoterapi.</p>
                 
-                <div class="contact-details" style="text-align: left; line-height: 1.4;">
+                <div class="contact-details"> 
                     <p><i class="fas fa-map-marker-alt" style="color: var(--primary-color); width: 25px;"></i><strong>Min adresse:</strong> Åstrupvej 10, 5. sal, 9800 Hjørring</p>
                     <p><i class="fas fa-phone" style="color: var(--primary-color); width: 25px;"></i><strong>Mit telefonnummer:</strong> <a href="tel:+4530235429">30 23 54 29</a></p>
                     <p><i class="fas fa-envelope" style="color: var(--primary-color); width: 25px;"></i><strong>Min e-mail:</strong> <a href="mailto:Hjoerringhypnosecenter@gmail.com">Hjoerringhypnosecenter@gmail.com</a></p>
@@ -622,7 +629,7 @@
                     <p><i class="fas fa-info-circle" style="color: var(--primary-color); width: 25px;"></i>Priser og sessioner aftales individuelt. Planlæg 1,5-2 timer pr. session for at opnå de **bedste resultater**.</p>
                 </div>
                 
-                <a href="mailto:Hjoerringhypnosecenter@gmail.com?subject=Kontakt%20Hjørring%20Hypnosecenter" class="cta-button" style="margin-top: 40px;">Send mig en e-mail</a>
+                <a href="mailto:Hjoerringhypnosecenter@gmail.com?subject=Kontakt%20Hjørring%20Hypnosecenter" class="cta-button">Send mig en e-mail</a>
             </div>
         </div>
     </section>
