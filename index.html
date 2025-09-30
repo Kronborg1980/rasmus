@@ -352,7 +352,6 @@
             padding: 50px;
             border-radius: var(--radius-large);
             box-shadow: var(--shadow-soft);
-            /* NYT: Centrerer alt indhold i denne boks */
             text-align: center; 
         }
 
@@ -365,9 +364,37 @@
             filter: saturate(0.8);
         }
         
+        /* NYT DESIGN FOR KONTAKTDETALJER */
+        .contact-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* To kolonner på desktop */
+            gap: 20px;
+            margin-bottom: 40px;
+            padding-top: 10px;
+            text-align: left; /* Sikrer tekst i gitteret er venstre-justeret */
+        }
+        
         .contact-details p {
-            line-height: 1.5;
-            margin: 10px 0;
+            background-color: var(--secondary-color); /* Lys baggrund for blok */
+            padding: 20px;
+            border-radius: var(--radius-soft);
+            box-shadow: var(--shadow-soft);
+            line-height: 1.4;
+            margin: 0; /* Fjern margin for p-tags i grid */
+            transition: background-color 0.3s ease;
+        }
+        
+        .contact-details p:hover {
+            background-color: #f7f5f2;
+        }
+        
+        .contact-details i {
+            display: inline-block;
+            color: var(--primary-color);
+            width: 25px; /* Fast ikon bredde */
+            margin-right: 10px;
+            font-size: 1.1em;
+            vertical-align: top; /* Juster ikon med tekst */
         }
 
         .contact-details a {
@@ -379,6 +406,39 @@
         
         .contact-details a:hover {
             color: var(--accent-color);
+        }
+
+        /* Særlig styling for åbningstider og info-linjen (fuld bredde) */
+        .contact-details .full-width {
+            grid-column: 1 / -1; /* Får elementet til at fylde hele bredden */
+        }
+        
+        /* NYT: Styling til Google Maps iFrame */
+        .map-container {
+            width: 100%;
+            margin-top: 30px; /* Adskillelse fra kontaktinfo */
+            overflow: hidden; /* Sikrer at border-radius virker på iFrame */
+            border-radius: var(--radius-large); /* Stor afrunding, matcher contact-content */
+            box-shadow: var(--shadow-soft);
+            border: 1px solid var(--accent-color); /* Subtil ramme */
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 350px; /* Passende højde */
+            border: 0; /* Fjern standard iFrame border */
+            display: block;
+            filter: grayscale(10%); /* Subtil gråtone for at matche den dæmpede palette */
+            transition: filter 0.5s ease;
+        }
+
+        .map-container iframe:hover {
+            filter: grayscale(0%); /* Fuld farve ved hover for at invitere til interaktion */
+        }
+        
+        /* Generel knap styling */
+        .contact-content .cta-button { 
+            margin-top: 40px;
         }
 
 
@@ -409,8 +469,8 @@
             
             /* Generel Tilpasning */
             body { font-size: 1em; }
-            .container { padding: 0 20px; } /* Lidt mere padding */
-            .section { padding: 60px 0; } /* Mindre plads mellem sektioner */
+            .container { padding: 0 20px; } 
+            .section { padding: 60px 0; } 
 
             /* Typografi */
             h2 { font-size: 2.2em; padding-bottom: 15px; margin-bottom: 15px;}
@@ -421,30 +481,28 @@
             /* Navigation - Hamburger Menu */
             nav .container > div {
                 justify-content: space-between;
-                padding-right: 15px; /* Plads til knappen */
+                padding-right: 15px; 
             }
 
             .menu-toggle {
-                display: flex; /* Vis hamburger på mobil */
+                display: flex; 
             }
 
             nav ul {
-                /* Skjuler menu som standard */
                 position: absolute;
-                top: 61px; /* Lige under nav-baren */
+                top: 61px; 
                 left: 0;
                 width: 100%;
                 background: rgba(93, 126, 142, 0.95); 
                 flex-direction: column;
                 gap: 0;
-                transform: translateX(100%); /* Flyt menuen uden for skærmen */
+                transform: translateX(100%); 
                 height: auto;
                 opacity: 0;
                 pointer-events: none;
             }
 
             nav ul.active {
-                /* Viser menuen, når den er aktiv */
                 transform: translateX(0);
                 opacity: 1;
                 pointer-events: all;
@@ -471,7 +529,7 @@
 
             /* Services Grid */
             .services-grid {
-                grid-template-columns: 1fr; /* 1 kolonne på mobil */
+                grid-template-columns: 1fr; 
             }
             .service-item {
                 border-radius: var(--radius-soft);
@@ -486,7 +544,7 @@
                 padding: 30px 0;
             }
             .text-with-image img { 
-                width: 100%; /* Billedet fylder mere på mobil */
+                width: 100%; 
                 min-width: unset;
                 height: 300px;
                 border-radius: var(--radius-soft);
@@ -500,14 +558,20 @@
                 transform: translateX(-50%); 
             }
             
-            /* Kontakt sektion */
+            /* Kontakt sektion - Sæt detaljer til én kolonne på mobil */
             .contact-content { padding: 30px 20px; }
-            .contact-details p { font-size: 0.95em; }
-            
-            /* NYT: Sørger for at kontaktinfo forbliver venstre-justeret */
             .contact-details { 
-                text-align: left !important; 
+                grid-template-columns: 1fr; /* Én kolonne på mobil */
             }
+            .contact-details p { 
+                font-size: 0.95em; 
+            }
+            
+            /* Maps på mobil */
+            .map-container iframe {
+                height: 250px; /* Mindre højde på mobil */
+            }
+
         }
 
         /* SCROLL ANIMATION KLASSE (BEHOLDT) */
@@ -622,13 +686,22 @@
                 <p style="margin-bottom: 40px; font-weight: 500;">Er du klar til at **lave en varig forbedring**? Kontakt mig for en **uforpligtende samtale**, hvor jeg kan vise dig den hurtigste vej til dit mål med hypnoterapi.</p>
                 
                 <div class="contact-details"> 
-                    <p><i class="fas fa-map-marker-alt" style="color: var(--primary-color); width: 25px;"></i><strong>Min adresse:</strong> Åstrupvej 10, 5. sal, 9800 Hjørring</p>
-                    <p><i class="fas fa-phone" style="color: var(--primary-color); width: 25px;"></i><strong>Mit telefonnummer:</strong> <a href="tel:+4530235429">30 23 54 29</a></p>
-                    <p><i class="fas fa-envelope" style="color: var(--primary-color); width: 25px;"></i><strong>Min e-mail:</strong> <a href="mailto:Hjoerringhypnosecenter@gmail.com">Hjoerringhypnosecenter@gmail.com</a></p>
-                    <p style="margin-top: 20px;"><i class="fas fa-clock" style="color: var(--primary-color); width: 25px;"></i><strong>Mine åbningstider:</strong> Hverdage kl. 17-21, weekender efter aftale.</p>
-                    <p><i class="fas fa-info-circle" style="color: var(--primary-color); width: 25px;"></i>Priser og sessioner aftales individuelt. Planlæg 1,5-2 timer pr. session for at opnå de **bedste resultater**.</p>
+                    <p><i class="fas fa-map-marker-alt"></i><strong>Adresse:</strong> Åstrupvej 10, 5. sal, 9800 Hjørring</p>
+                    <p><i class="fas fa-phone"></i><strong>Tlf:</strong> <a href="tel:+4530235429">30 23 54 29</a></p>
+                    <p class="full-width"><i class="fas fa-envelope"></i><strong>E-mail:</strong> <a href="mailto:Hjoerringhypnosecenter@gmail.com">Hjoerringhypnosecenter@gmail.com</a></p>
+                    <p class="full-width"><i class="fas fa-clock"></i><strong>Åbningstider:</strong> Hverdage kl. 17-21, weekender efter aftale.</p>
+                    <p class="full-width"><i class="fas fa-info-circle"></i>Priser og sessioner aftales individuelt. Planlæg 1,5-2 timer pr. session for at opnå de **bedste resultater**.</p>
                 </div>
                 
+                <div class="map-container reveal" style="transition-delay: 0.3s;"> 
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2004.8142717006842!2d9.970172676752706!3d57.44755167389828!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x464205565574c83f%3A0xc3f1703668f44d82!2s%C3%85strupvej%2010%2C%209800%20Hj%C3%B8rring!5e0!3m2!1sda!2sdk!4v1700000000000!5m2!1sda!2sdk" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Kort over Hjørring Hypnosecenter adresse"
+                    ></iframe>
+                </div>
                 <a href="mailto:Hjoerringhypnosecenter@gmail.com?subject=Kontakt%20Hjørring%20Hypnosecenter" class="cta-button">Send mig en e-mail</a>
             </div>
         </div>
