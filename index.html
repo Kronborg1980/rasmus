@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
     
     <style>
+        /* BASE VARIABLER OG STYLES (Beholdt for æstetik) */
         :root {
             --primary-color: #5d7e8e;
             --secondary-color: #e9e5de;
@@ -36,8 +37,8 @@
             font-family: 'Raleway', sans-serif;
             background-color: var(--secondary-color);
             color: var(--text-dark);
-            line-height: 1.6; /* Lidt strammere på mobil for at spare plads */
-            font-size: 1em; /* Mobile First: Basestørrelse på 1em */
+            line-height: 1.6; /* MOBIL BASE */
+            font-size: 16px; /* MOBIL BASE */
             overflow-x: hidden;
             font-weight: 400;
         }
@@ -45,7 +46,7 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 16px; /* Mindre padding på mobil */
+            padding: 0 16px; /* MOBIL BASE PADDING */
         }
 
         /* TYPOGRAFI */
@@ -54,9 +55,10 @@
             color: var(--primary-color);
             font-weight: 700;
         }
-
+        
+        /* H2 Mobiljustering */
         h2 {
-            font-size: 2.2em; /* Mindre på mobil */
+            font-size: 2em;
             margin-bottom: 20px;
             position: relative;
             padding-bottom: 15px;
@@ -69,57 +71,49 @@
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 60px; /* Mindre linje på mobil */
+            width: 50px; /* Mindre på mobil */
             height: 1px;
             background: var(--accent-color);
         }
 
-        /* Navigation */
+        /* --- NAVIGATION OPTIMERING --- */
         nav {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            background: rgba(93, 126, 142, 0.95); /* Mere uigennemsigtig på mobil */
-            backdrop-filter: blur(3px);
+            background: rgba(93, 126, 142, 0.98); /* Næsten uigennemsigtig på mobil */
+            backdrop-filter: blur(5px);
             padding: 15px 0;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
             z-index: 1000;
         }
 
-        nav .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
         nav h1 {
-            font-size: 1.4em;
+            font-size: 1.3em; /* Mindre logo på mobil */
             color: var(--text-light);
         }
-        
-        /* Nav Links (Skjult på mobil som standard) */
+
+        /* Mobil menu beholder */
         nav ul {
-            list-style: none;
-            /* Skjult og positioneret for mobilmenu */
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%;
+            height: 100vh; /* Fuld højde */
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: rgba(93, 126, 142, 0.98); /* Næsten fuld dækning */
+            background: rgba(93, 126, 142, 0.98); 
             transform: translateX(100%);
             transition: transform 0.4s ease-in-out;
             z-index: 999;
-            display: none; /* Starter som display none */
+            display: none; 
         }
 
         nav ul.active {
             transform: translateX(0);
-            display: flex; /* Viser menuen, når den er aktiv */
+            display: flex;
         }
         
         nav ul li {
@@ -129,18 +123,20 @@
         nav ul li a {
             color: var(--text-light);
             text-decoration: none;
-            font-size: 1.6em; /* Større links for nemmere touch */
+            font-size: 1.8em; /* Store touch-targets */
             padding: 10px 0;
             display: block;
+            opacity: 0.9;
         }
 
-        /* Hamburger Menu */
+        /* Hamburger Menu (Mobil) */
         .menu-toggle {
-            display: flex;
+            display: flex; /* Vises på mobil */
             flex-direction: column;
             cursor: pointer;
             z-index: 1100;
-            gap: 4px;
+            gap: 5px; /* Lidt mere luft */
+            padding: 5px; /* Lettere at ramme */
         }
 
         .menu-toggle span {
@@ -148,74 +144,82 @@
             width: 25px;
             background: var(--text-light);
             transition: var(--transition-slow);
+            border-radius: 1px;
         }
-        
-        /* Hamburger Animation */
-        .menu-toggle.active span:nth-child(1) { transform: rotate(-45deg) translate(-5px, 6px); }
-        .menu-toggle.active span:nth-child(2) { opacity: 0; }
-        .menu-toggle.active span:nth-child(3) { transform: rotate(45deg) translate(-5px, -6px); }
 
-
-        /* Hero Section */
+        /* --- HERO SEKTION OPTIMERING --- */
         .hero {
-            height: 65vh; /* Lavere på mobil for at vise indhold hurtigere */
+            height: 70vh; /* Mindre højde for at få indhold frem hurtigere */
             padding-top: 60px;
         }
         
         .hero-content {
-            padding: 20px;
+            padding: 30px 15px;
             border-radius: var(--radius-soft);
         }
 
         .hero h2 {
-            font-size: 2.8em;
+            font-size: 2.5em; /* Mobil størrelse */
+            margin-bottom: 15px;
         }
 
         .hero p {
-            font-size: 1.1em;
-            margin-bottom: 30px;
+            font-size: 1.05em;
+            margin-bottom: 25px;
+            line-height: 1.5;
         }
 
-        /* CTA Knap */
+        /* CTA Knap Mobil (Fuld bredde for nemt klik) */
         .cta-button {
-            padding: 12px 30px;
-            font-size: 1em;
-            width: 100%; /* Fuld bredde på mobil */
-            max-width: 300px; /* Men begrænset for æstetik */
+            padding: 15px 30px;
+            font-size: 1.05em;
+            width: 100%; 
+            max-width: 320px; 
+            margin: 0 auto;
+            display: block; /* Sikrer centering */
         }
 
-        /* Section Styles */
+        /* --- GENERELT INDHOLD OPTIMERING --- */
         .section {
-            padding: 60px 0; /* Mindre sektionsafstand på mobil */
+            padding: 60px 0;
         }
         
-        /* Services Grid */
+        /* Services Grid Stakkes på mobil */
         .services-grid {
-            grid-template-columns: 1fr; /* Stakkes på mobil */
-            gap: 20px;
+            grid-template-columns: 1fr;
+            gap: 25px;
         }
 
         .service-item {
             padding: 25px;
             border-radius: var(--radius-soft);
+            text-align: left;
         }
 
         .service-item h3 {
             font-size: 1.4em;
         }
+        
+        /* Facts List */
+        .facts-list li {
+            padding: 20px;
+            margin: 15px 0;
+        }
 
-        /* About Section (Text with Image) */
+        /* About Section */
         .text-with-image {
             flex-direction: column;
-            gap: 40px;
+            gap: 30px;
             text-align: center;
         }
 
         .text-with-image img {
-            width: 100%;
+            width: 80%;
             max-width: 300px;
             height: 300px;
-            border-radius: 50%; /* Beholder den runde form */
+            margin-bottom: 10px;
+            /* Bevarer den runde form med accent-ramme */
+            box-shadow: 0 0 0 6px var(--accent-color), var(--shadow-soft); 
         }
 
         .text-with-image h2 {
@@ -227,13 +231,25 @@
             transform: translateX(-50%);
         }
 
-        /* Contact Section */
+        /* Kontakt Detaljer */
         .contact-content {
             padding: 30px 20px;
             border-radius: var(--radius-soft);
         }
+        .contact-details p {
+            font-size: 1em;
+            line-height: 1.4;
+        }
+        .contact-image {
+            border-radius: var(--radius-soft);
+        }
+        
+        footer {
+            padding: 40px 0;
+        }
 
-        /* Desktop-specifikke justeringer */
+
+        /* --- DESKTOP / TABLET OPTIMERING (Min-width 768px) --- */
         @media (min-width: 768px) {
             body {
                 font-size: 1.05em;
@@ -243,24 +259,7 @@
                 padding: 0 32px;
             }
 
-            nav h1 {
-                font-size: 1.8em;
-            }
-            
-            nav ul {
-                display: flex; /* Viser nav links på desktop */
-                position: static;
-                height: auto;
-                background: transparent;
-                transform: translateX(0);
-                flex-direction: row;
-                z-index: 1000;
-            }
-
-            .menu-toggle {
-                display: none; /* Skjuler hamburger på desktop */
-            }
-
+            /* H2 Desktop */
             h2 {
                 font-size: 2.8em;
                 padding-bottom: 20px;
@@ -269,14 +268,34 @@
                 width: 80px;
             }
 
+            /* Nav Desktop */
+            nav h1 {
+                font-size: 1.8em;
+            }
+            nav ul {
+                display: flex;
+                position: static;
+                height: auto;
+                background: transparent;
+                transform: translateX(0);
+                flex-direction: row;
+                z-index: 1000;
+                gap: 30px;
+            }
+            .menu-toggle {
+                display: none;
+            }
+            nav ul li a {
+                font-size: 1em;
+            }
+
+            /* Hero Desktop */
             .hero {
                 height: 90vh;
             }
-
             .hero h2 {
                 font-size: 3.8em;
             }
-
             .cta-button {
                 width: auto;
                 max-width: none;
@@ -286,27 +305,27 @@
                 padding: 100px 0;
             }
             
+            /* Services Grid Desktop */
             .services-grid {
                 grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
                 gap: 30px;
             }
             
+            /* About Desktop */
             .text-with-image {
                 flex-direction: row;
                 text-align: left;
                 gap: 60px;
             }
-
             .text-with-image img {
                 width: 40%;
                 min-width: 300px;
                 height: 350px;
+                box-shadow: 0 0 0 8px var(--accent-color), var(--shadow-soft);
             }
-
             .text-with-image h2 {
                 text-align: left;
             }
-
             .text-with-image h2::after {
                 left: 0;
                 transform: translateX(0);
@@ -373,7 +392,7 @@
             <div class="services-grid">
                 
                 <div class="service-item reveal" data-delay="0s">
-                    <i class="fas fa-rocket"></i>
+                    <i class="fas fa-rocket"></i> 
                     <h3>Øget Selvværd & Power</h3>
                     <p>Jeg **frigør** din indre styrke, så du opnår en **robust selvtillid** og tør stå ved dig selv i alle situationer.</p>
                 </div>
@@ -476,9 +495,9 @@
                     }
                     reveals[i].classList.add("active");
                 } else {
-                    reveals[i].classList.remove("active");
-                    if (reveals[i].classList.contains('service-item')) {
-                        reveals[i].style.transitionDelay = '0s';
+                    // Fjern 'active' for at gentage animationen, når man scroller op/ned (bedre på mobil)
+                    if (reveals[i].classList.contains('active') && elementTop > windowHeight) {
+                        reveals[i].classList.remove("active");
                     }
                 }
             }
@@ -495,11 +514,14 @@
             menuToggle.addEventListener('click', () => {
                 navLinks.classList.toggle('active');
                 menuToggle.classList.toggle('active');
+                // Håndterer body scroll når menuen er åben
+                document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : 'auto';
             });
             document.querySelectorAll('.nav-links a').forEach(link => {
                 link.addEventListener('click', () => {
                     navLinks.classList.remove('active');
                     menuToggle.classList.remove('active');
+                    document.body.style.overflow = 'auto'; // Genåbner scroll
                 });
             });
         }
