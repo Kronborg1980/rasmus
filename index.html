@@ -6,23 +6,23 @@
     <meta name="description" content="Hjørring Hypnosecenter er min klinik for varig forandring. Jeg hjælper dig med at overvinde angst, afhængighed og negative mønstre gennem effektiv hypnoterapi.">
     <meta name="keywords" content="hypnoterapi, Hjørring, forandring, varig forbedring, rygestop, vægttab, fobi, højdeskræk, angst, selvværd">
     <meta name="author" content="Rasmus (Hjørring Hypnosecenter)">
-    <title>Hjørring Hypnosecenter - Din vej til varig forandring</title>
+    <title>Hjørring Hypnosecenter - Eksklusiv Hypnoterapi</title>
     
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;500;600&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
     
     <style>
-        /* --- DESIGN VARIABLER --- */
+        /* --- DYB BLØDHED I DESIGN VARIABLER --- */
         :root {
-            --primary-color: #5d7e8e; /* Dyb søblå */
-            --secondary-color: #f7f7f7; /* Let, luftig off-white */
-            --accent-color: #a7a39d; /* Dæmpet, elegant grå */
-            --text-dark: #3a4149;
+            --primary-color: #4a6572; /* Dyb, beroligende blå */
+            --secondary-color: #fcfcfc; /* Varm, blød hvid/creme baggrund */
+            --accent-color: #a3b0ac; /* Blød, støvet grøn/grå */
+            --text-dark: #333333;
             --text-light: #ffffff;
-            --radius-soft: 15px; /* Mindre for bedre mobil flow */
-            --radius-large: 30px; /* Mindre for bedre mobil flow */
-            --shadow-soft: 0 4px 15px rgba(0, 0, 0, 0.08);
-            --transition-speed: all 0.5s ease-in-out;
+            --radius-soft: 25px; 
+            --radius-large: 60px; /* Meget afrundet for maksimal blødhed */
+            --shadow-soft: 0 8px 30px rgba(0, 0, 0, 0.05); /* Lidt stærkere, men blødere spredt skygge */
+            --transition-speed: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
         * {
@@ -37,25 +37,26 @@
             font-family: 'Raleway', sans-serif;
             background-color: var(--secondary-color);
             color: var(--text-dark);
-            line-height: 1.6;
-            font-size: 16px; /* Mobil Base */
+            line-height: 1.65;
+            font-size: 16px;
             overflow-x: hidden;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px; /* Standard padding */
+            padding: 0 20px;
         }
 
         /* --- TYPOGRAFI & SEKTIONER --- */
         h1, h2, h3 {
             font-family: 'Playfair Display', serif;
             color: var(--primary-color);
+            font-weight: 700;
         }
 
         h2 {
-            font-size: clamp(2em, 5vw, 2.8em); /* Flydende skriftstørrelse */
+            font-size: clamp(2.2em, 5vw, 3em);
             margin-bottom: 30px;
             padding-bottom: 10px;
             position: relative;
@@ -68,39 +69,34 @@
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 50px;
-            height: 1px;
+            width: 70px;
+            height: 2px; /* Tykkere linje for elegance */
             background: var(--accent-color);
+            border-radius: 1px;
         }
 
         .section {
-            padding: 80px 0; /* Standard sektionsafstand */
+            padding: 90px 0;
         }
         
-        /* --- NAVIGATION --- */
+        /* --- NAVIGATION & MENU --- */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(93, 126, 142, 0.98);
+            background: rgba(74, 101, 114, 0.98); /* Mørkere end primary for kontrast */
             backdrop-filter: blur(5px);
-            padding: 15px 0;
-            box-shadow: var(--shadow-soft);
+            padding: 18px 0;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
             z-index: 1000;
         }
 
-        nav .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
         nav h1 {
-            font-size: 1.4em;
+            font-size: 1.5em;
             color: var(--text-light);
+            font-weight: 400;
         }
 
-        /* Mobil Menu Styling */
         nav ul {
             position: fixed;
             top: 0;
@@ -110,9 +106,9 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: rgba(93, 126, 142, 0.98); 
+            background: rgba(74, 101, 114, 0.98); 
             transform: translateX(100%);
-            transition: transform 0.4s ease-in-out;
+            transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* Fjeder-effekt */
             z-index: 999;
             display: none; 
             list-style: none;
@@ -123,10 +119,10 @@
             display: flex;
         }
         
-        nav ul li { margin: 25px 0; }
+        nav ul li { margin: 30px 0; }
 
         nav ul li a {
-            color: var(--text-light);
+            color: var(--secondary-color);
             text-decoration: none;
             font-size: 1.8em; 
             padding: 10px 0;
@@ -143,133 +139,146 @@
         }
 
         .menu-toggle span {
-            height: 2px;
-            width: 25px;
+            height: 3px; /* Tykkere streger */
+            width: 28px;
             background: var(--text-light);
             transition: var(--transition-speed);
-            border-radius: 1px;
+            border-radius: 2px;
         }
 
         /* --- HERO SEKTION --- */
         .hero {
-            position: relative;
-            height: 70vh; /* MOBIL VENLIG HØJDE */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: var(--text-light);
-            overflow: hidden;
+            height: 75vh; 
             padding-top: 80px;
         }
         
-        .hero-overlay {
-            position: absolute;
-            /* ... (beholdt) */
-        }
-        .hero-image {
-            /* ... (beholdt) */
-        }
-        
         .hero-content {
-            position: relative;
-            z-index: 1;
-            padding: 30px;
-            border-radius: var(--radius-soft);
-            max-width: 90%; /* For mobil */
+            padding: 40px;
+            border-radius: var(--radius-large); /* Ekstra blødhed her */
+            max-width: 90%; 
+            background: rgba(255, 255, 255, 0.1); 
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
         }
 
         .hero h2 {
-            font-size: clamp(2.2em, 6vw, 3.8em);
+            font-size: clamp(2.5em, 7vw, 4em);
             color: var(--text-light);
-            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+            text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.7);
             margin-bottom: 20px;
+            line-height: 1.2;
         }
 
         .hero p {
-            font-size: 1.1em;
-            margin-bottom: 30px;
+            font-size: 1.15em;
+            margin-bottom: 40px;
+            text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
         }
         
         /* --- CTA KNAP --- */
         .cta-button {
-            display: inline-block;
             background: var(--accent-color);
             color: var(--text-dark);
-            padding: 15px 35px;
-            text-decoration: none;
+            padding: 18px 40px;
             border-radius: var(--radius-soft); 
-            font-weight: 500;
-            transition: var(--transition-speed);
-            box-shadow: var(--shadow-soft);
-            width: 100%; /* Fuld bredde på mobil */
+            font-weight: 600;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            width: 100%; 
             max-width: 350px;
+            border: none;
         }
 
         .cta-button:hover {
             background: var(--primary-color);
             color: var(--text-light);
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
         }
 
-        /* --- SERVICES GRID --- */
+        /* --- SERVICES GRID - MEST BLØDHED HER --- */
         .services-grid {
-            display: grid;
-            grid-template-columns: 1fr; /* Stakkes på mobil */
-            gap: 25px;
+            grid-template-columns: 1fr; 
+            gap: 30px;
         }
 
         .service-item {
-            background: var(--text-light);
-            padding: 30px;
+            background: var(--secondary-color); /* Brug baggrundsfarven for blød overgang */
+            padding: 35px;
             border-radius: var(--radius-large); 
-            box-shadow: var(--shadow-soft);
-            text-align: left;
+            
+            /* Subtil, organisk Neumorphism-lignende effekt */
+            box-shadow: -5px -5px 15px var(--text-light), 5px 5px 15px rgba(0, 0, 0, 0.05);
+            
             transition: var(--transition-speed);
-            border-bottom: 5px solid transparent;
+            border: 1px solid rgba(0, 0, 0, 0.05); /* Tynd, diskret kant */
         }
         
         .service-item i {
-            font-size: 2em;
-            color: var(--accent-color);
-            margin-bottom: 10px;
+            font-size: 2.2em;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            opacity: 0.8;
         }
 
         .service-item h3 {
-            font-size: 1.3em;
-            margin-bottom: 8px;
+            font-size: 1.5em;
+            margin-bottom: 10px;
         }
 
         .service-item:hover {
-            transform: translateY(-4px);
-            border-bottom: 5px solid var(--primary-color);
+            transform: translateY(-5px);
+            /* Simulerer et let tryk/løft */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), 0 0 0 3px var(--accent-color);
         }
+
+        /* --- FACTS SEKTION --- */
+        .facts-list li {
+            background: var(--text-light);
+            padding: 25px;
+            border-radius: var(--radius-soft); 
+            box-shadow: var(--shadow-soft);
+            margin-bottom: 20px;
+            border-left: 6px solid var(--primary-color);
+        }
+        .facts-list li i { margin-right: 12px; color: var(--accent-color); }
 
         /* --- ABOUT SEKTION --- */
-        .text-with-image {
-            display: flex;
-            flex-direction: column; /* Stakkes på mobil */
-            align-items: center;
-            gap: 40px;
-            text-align: center;
-        }
-
         .text-with-image img {
-            width: 80%;
-            max-width: 300px;
-            height: 300px;
-            border-radius: 50%; /* Rundt billede */
-            object-fit: cover;
-            box-shadow: 0 0 0 8px var(--accent-color), var(--shadow-soft);
+            max-width: 320px;
+            height: 320px;
+            /* Meget blødere og tykkere kant rundt om portrættet */
+            box-shadow: 0 0 0 10px var(--accent-color), 0 15px 35px rgba(0, 0, 0, 0.15);
         }
 
-        .text-with-image h2 { text-align: center; }
+        /* --- KONTAKT SEKTION --- */
+        .contact-content {
+            padding: 40px;
+            border-radius: var(--radius-large);
+            box-shadow: var(--shadow-soft);
+        }
+        .contact-details p {
+            font-size: 1.05em;
+        }
+
+        /* --- FOOTER CHARME --- */
+        footer {
+            background: var(--primary-color);
+            padding: 50px 0;
+            border-top: none;
+        }
+        footer a {
+            color: var(--accent-color);
+            font-weight: 500;
+        }
+        footer p {
+             /* Lidt mindre i bunden for elegance */
+            font-size: 0.85em;
+        }
+
 
         /* --- DESKTOP OPTIMERING --- */
         @media (min-width: 768px) {
             
             body { font-size: 17px; line-height: 1.7; }
-            .container { padding: 0 30px; }
             .section { padding: 100px 0; }
 
             /* Navigation Desktop */
@@ -279,35 +288,29 @@
             nav ul li a { font-size: 1em; }
 
             /* Hero Desktop */
-            .hero { height: 90vh; }
-            .hero-content { max-width: 700px; }
-            .hero h2 { font-size: 3.8em; }
+            .hero { height: 95vh; }
+            .hero-content { max-width: 800px; }
+            .hero h2 { font-size: 4em; }
             .cta-button { width: auto; max-width: none; }
 
             /* Services Desktop */
             .services-grid {
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-                gap: 30px;
+                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+                gap: 40px;
             }
-
+            
             /* About Desktop */
             .text-with-image {
                 flex-direction: row;
                 text-align: left;
-                gap: 60px;
+                gap: 80px;
             }
             .text-with-image img {
                 width: 40%;
-                max-width: 350px;
-                height: 350px;
+                max-width: 380px;
+                height: 380px;
             }
-            .text-with-image h2 {
-                text-align: left;
-            }
-            .text-with-image h2::after {
-                left: 0;
-                transform: translateX(0);
-            }
+            .text-with-image h2::after { left: 0; transform: translateX(0); }
         }
         
         /* SCROLL ANIMATION KLASSE (Beholdt) */
@@ -324,11 +327,6 @@
             transition-delay: var(--delay);
         }
         
-        @keyframes slowFadeIn {
-            from { opacity: 0; transform: translateY(40px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
     </style>
 </head>
 <body>
@@ -351,8 +349,8 @@
         </div>
     </nav>
     <div id="home" class="hero">
-        <div class="hero-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(93, 126, 142, 0.7); z-index: 0;"></div>
-        <img src="billeder/hoved.jpg" alt="Roligt, tåget landskab eller hav for at symbolisere dybde og ro" class="hero-image" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; filter: grayscale(30%) brightness(0.7); transform: scale(1.03); transition: transform 20s linear;" loading="lazy">
+        <div class="hero-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(74, 101, 114, 0.75); z-index: 0;"></div>
+        <img src="billeder/hoved.jpg" alt="Roligt, tåget landskab eller hav for at symbolisere dybde og ro" class="hero-image" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; filter: grayscale(30%) brightness(0.6); transform: scale(1.03); transition: transform 20s linear;" loading="lazy">
         <div class="hero-content container">
             <h2>Tag kontrollen: Start din varige forandring i dag</h2>
             <p>Jeg hjælper dig med at **transformere** gamle vaner og overbevisninger til **stærke, nye resultater**. Se, hvordan hypnoterapi kan forbedre dit liv.</p>
@@ -403,10 +401,10 @@
         <div class="container">
             <h2 class="reveal">Hypnoterapi: En stærk metode til varig forandring</h2>
             <ul class="facts-list reveal" style="list-style: none; padding: 0; max-width: 900px; margin: 0 auto;">
-                <li style="background: white; padding: 20px; border-radius: var(--radius-soft); box-shadow: var(--shadow-soft); margin-bottom: 20px; border-left: 5px solid var(--primary-color);"><i class="fas fa-check-circle" style="color: var(--primary-color); margin-right: 15px;"></i>Jeg neutraliserer gamle, uønskede overbevisninger og erstatter dem med **handlingsorienterede, nye mønstre**.</li>
-                <li style="background: white; padding: 20px; border-radius: var(--radius-soft); box-shadow: var(--shadow-soft); margin-bottom: 20px; border-left: 5px solid var(--primary-color);"><i class="fas fa-check-circle" style="color: var(--primary-color); margin-right: 15px;"></i>Mine klienter oplever mærkbare **resultater** allerede efter første session.</li>
-                <li style="background: white; padding: 20px; border-radius: var(--radius-soft); box-shadow: var(--shadow-soft); margin-bottom: 20px; border-left: 5px solid var(--primary-color);"><i class="fas fa-check-circle" style="color: var(--primary-color); margin-right: 15px;"></i>Hypnose er en tryg, bevidst tilstand, hvor du **altid er i fuld kontrol**.</li>
-                <li style="background: white; padding: 20px; border-radius: var(--radius-soft); box-shadow: var(--shadow-soft); margin-bottom: 20px; border-left: 5px solid var(--primary-color);"><i class="fas fa-check-circle" style="color: var(--primary-color); margin-right: 15px;"></i>Jeg er professionelt uddannet fra Hypnosehuset Danmark med fokus på **effektivitet og resultater**.</li>
+                <li style="background: var(--text-light); padding: 25px; border-radius: var(--radius-soft); box-shadow: var(--shadow-soft); margin-bottom: 20px; border-left: 6px solid var(--primary-color);"><i class="fas fa-check-circle" style="color: var(--primary-color); margin-right: 12px;"></i>Jeg neutraliserer gamle, uønskede overbevisninger og erstatter dem med **handlingsorienterede, nye mønstre**.</li>
+                <li style="background: var(--text-light); padding: 25px; border-radius: var(--radius-soft); box-shadow: var(--shadow-soft); margin-bottom: 20px; border-left: 6px solid var(--primary-color);"><i class="fas fa-check-circle" style="color: var(--primary-color); margin-right: 12px;"></i>Mine klienter oplever mærkbare **resultater** allerede efter første session.</li>
+                <li style="background: var(--text-light); padding: 25px; border-radius: var(--radius-soft); box-shadow: var(--shadow-soft); margin-bottom: 20px; border-left: 6px solid var(--primary-color);"><i class="fas fa-check-circle" style="color: var(--primary-color); margin-right: 12px;"></i>Hypnose er en tryg, bevidst tilstand, hvor du **altid er i fuld kontrol**.</li>
+                <li style="background: var(--text-light); padding: 25px; border-radius: var(--radius-soft); box-shadow: var(--shadow-soft); margin-bottom: 20px; border-left: 6px solid var(--primary-color);"><i class="fas fa-check-circle" style="color: var(--primary-color); margin-right: 12px;"></i>Jeg er professionelt uddannet fra Hypnosehuset Danmark med fokus på **effektivitet og resultater**.</li>
             </ul>
         </div>
     </section>
@@ -418,32 +416,32 @@
                 <h2>Mød mig – Din guide til personlig transformation</h2>
                 <p>Hej. Min passion er at **guide dig fra problem til løsning** ved at frigøre dit fulde potentiale. Min tilgang er **direkte, nærværende og resultatorienteret**.</p>
                 <p>Jeg har skabt et trygt rum, hvor vi kan gå dybt ned i underbevidstheden og sikre, at dine nye vaner og overbevisninger er **varige**. Jeg er her for at støtte dig i at skabe præcis den forbedring, du ønsker.</p>
-                <a href="#kontakt" class="cta-button" style="margin-top: 30px; background-color: var(--primary-color); color: var(--text-light);">Gå i gang med din forandring</a>
+                <a href="#kontakt" class="cta-button" style="margin-top: 35px; background-color: var(--primary-color); color: var(--text-light);">Gå i gang med din forandring</a>
             </div>
         </div>
     </section>
     
-    <section id="kontakt" class="section contact-section">
+    <section id="kontakt" class="section contact-section" style="background-color: var(--secondary-color); padding-bottom: 90px;">
         <div class="container">
             <div class="contact-content reveal" style="background: white; padding: 40px; border-radius: var(--radius-large); box-shadow: var(--shadow-soft); max-width: 700px; margin: 0 auto; text-align: center;">
                 <h2>Klar til at tage springet?</h2>
-                <img src="billeder/klinik.jpg" alt="Indbydende og roligt kliniklokale" class="contact-image" loading="lazy" style="width: 100%; height: auto; margin-bottom: 25px; border-radius: var(--radius-soft); box-shadow: var(--shadow-soft);">
-                <p style="margin-bottom: 30px; font-weight: 500;">Er du klar til at **lave en varig forbedring**? Kontakt mig for en **uforpligtende samtale**, hvor jeg kan vise dig den hurtigste vej til dit mål med hypnoterapi.</p>
+                <img src="billeder/klinik.jpg" alt="Indbydende og roligt kliniklokale" class="contact-image" loading="lazy" style="width: 100%; height: auto; margin-bottom: 30px; border-radius: var(--radius-soft); box-shadow: var(--shadow-soft);">
+                <p style="margin-bottom: 35px; font-weight: 500;">Er du klar til at **lave en varig forbedring**? Kontakt mig for en **uforpligtende samtale**, hvor jeg kan vise dig den hurtigste vej til dit mål med hypnoterapi.</p>
                 
-                <div class="contact-details" style="text-align: left; line-height: 1.5;">
+                <div class="contact-details" style="text-align: left; line-height: 1.5; font-size: 1.05em;">
                     <p><i class="fas fa-map-marker-alt" style="color: var(--primary-color); width: 25px;"></i><strong>Min adresse:</strong> Åstrupvej 10, 5. sal, 9800 Hjørring</p>
                     <p><i class="fas fa-phone" style="color: var(--primary-color); width: 25px;"></i><strong>Mit telefonnummer:</strong> <a href="tel:+4530235429" style="color: var(--primary-color); text-decoration: none;">30 23 54 29</a></p>
                     <p><i class="fas fa-envelope" style="color: var(--primary-color); width: 25px;"></i><strong>Min e-mail:</strong> <a href="mailto:Hjoerringhypnosecenter@gmail.com" style="color: var(--primary-color); text-decoration: none;">Hjoerringhypnosecenter@gmail.com</a></p>
-                    <p style="margin-top: 20px;"><i class="fas fa-clock" style="color: var(--primary-color); width: 25px;"></i><strong>Mine åbningstider:</strong> Hverdage kl. 17-21, weekender efter aftale.</p>
+                    <p style="margin-top: 25px;"><i class="fas fa-clock" style="color: var(--primary-color); width: 25px;"></i><strong>Mine åbningstider:</strong> Hverdage kl. 17-21, weekender efter aftale.</p>
                     <p><i class="fas fa-info-circle" style="color: var(--primary-color); width: 25px;"></i>Priser og sessioner aftales individuelt. Planlæg 1,5-2 timer pr. session for at opnå de **bedste resultater**.</p>
                 </div>
                 
-                <a href="mailto:Hjoerringhypnosecenter@gmail.com?subject=Kontakt%20Hjørring%20Hypnosecenter" class="cta-button" style="margin-top: 35px;">Send mig en e-mail</a>
+                <a href="mailto:Hjoerringhypnosecenter@gmail.com?subject=Kontakt%20Hjørring%20Hypnosecenter" class="cta-button" style="margin-top: 40px;">Send mig en e-mail</a>
             </div>
         </div>
     </section>
     
-    <footer style="background: var(--primary-color); color: var(--secondary-color); text-align: center; padding: 40px 0; font-size: 0.9em;">
+    <footer>
         <div class="container">
             <p>
                 &copy; 2025 Hjørring Hypnosecenter | Designet af mig for din **succes**.
@@ -454,7 +452,7 @@
     </footer>
     
     <script>
-        // JS TIL SCROLL REVEAL & MOBILE MENU (VIGTIGT!)
+        // JS TIL SCROLL REVEAL & MOBILE MENU (BEHOLDT)
         function reveal() {
             var reveals = document.querySelectorAll(".reveal");
             for (var i = 0; i < reveals.length; i++) {
@@ -487,14 +485,13 @@
             menuToggle.addEventListener('click', () => {
                 navLinks.classList.toggle('active');
                 menuToggle.classList.toggle('active');
-                // Deaktiverer scroll, når menuen er åben
                 document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : 'auto';
             });
             document.querySelectorAll('.nav-links a').forEach(link => {
                 link.addEventListener('click', () => {
                     navLinks.classList.remove('active');
                     menuToggle.classList.remove('active');
-                    document.body.style.overflow = 'auto'; // Genåbner scroll
+                    document.body.style.overflow = 'auto';
                 });
             });
         }
